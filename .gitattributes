@@ -1,0 +1,6 @@
+# Don't export these
+.gitattributes export-ignore
+.media/* export-ignore
+
+# Ensure js files use crlf to prevent checksum mismatches
+*.js text eol=crlf
