@@ -16,7 +16,7 @@ I do not know who the original authors were.
 ## Installation
 
 1. Download a [zipball][] of this repository.
-2. Unextract it and copy the desired modules into `<tera-proxy>/bin/node_modules`.
+2. Unpack it and copy the desired modules into `<tera-proxy>/bin/node_modules`.
 
 
 ## Usage
