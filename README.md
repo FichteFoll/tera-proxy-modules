@@ -1,14 +1,17 @@
 # Modules for tera-proxy
 
-Modules for tera-proxy, [Caali's][proxy-Caali] or Pinkie's fork with auto-update support.
+Modules for tera-proxy,
+[Caali's][proxy-Caali] or [Pinkie's][proxy-Pinkie] fork,
+with auto-update support.
 All modules are working as of patch 75,
 Apex 2.
 
-I found most of them in a very old instance of proxy on my disk,
-and since they didn't seem to be listed anywhere anymore
+I found most of them in a very old instance of proxy on my disk
+and since they didn't seem to be listed anywhere anymore,
 I updated them for current versions
 and added a couple improvements where appropriate.
 I do not know who the original authors were.
+
 
 ## Installation
 
@@ -29,7 +32,9 @@ you can also type `!lobby`.
 When a module doesn't list commands,
 it will always be active as long as you installed it correctly.
 
+
 ---
+
 
 ## Instant Exit
 
@@ -38,6 +43,9 @@ Go to character selection without using the mouse.
 | Command | Description |
 |:-|:-|
 | `exit` | Exit TERA. |
+
+Your character will still linger on the server
+for 10 seconds until the timeout.
 
 
 ## Lobby Command
@@ -53,7 +61,7 @@ Go to character selection without using the mouse.
 
 Spawns large visible markers on top of dead party members.
 
-![Screenshot](http://i.imgur.com/bOSA6Lx.jpg)
+![Screenshot](./.media/pdm.jpg?raw=true)
 
 
 | Command | Description |
@@ -88,8 +96,11 @@ There is also a `partydeathmarkers` alias.
 
 ## timestamps
 
-![preview](/preview.png?raw=true)
+![preview](./.media/timestamps.png?raw=true)
+
+
+<!-- REFERENCES -->
 
 [proxy-Caali]: https://github.com/caali-hackerman/tera-proxy/
 [proxy-Pinkie]: https://discord.gg/RR9zf85
-[zipball]:
+[zipball]: https://github.com/FichteFoll/tera-proxy-modules/archive/master.zip
