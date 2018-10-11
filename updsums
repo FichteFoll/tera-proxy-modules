@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+# at least 3.6
+
+import copy
+import hashlib
+import json
+from pathlib import Path
+import sys
+
+
+def sha256sum(path: Path) -> bytes:
+    """Determine sha256sum of a file."""
+    m = hashlib.sha256()
+    with path.open('br') as fp:
+        m.update(fp.read())
+    return m.digest()
+
+
+def main(check: bool) -> int:
+    manifests = Path(__file__).parent.glob("*/manifest.json")
+    changed = 0
+
+    for m_path in manifests:
+        with m_path.open() as fp:
+            manifest = json.load(fp)
+        old_manifest = copy.deepcopy(manifest)
+
+        for file, chksum in old_manifest['files'].items():
+            path = Path(m_path.parent, file)
+            newsum = sha256sum(path).hex()
+            if newsum == chksum:
+                print(f"{path} unchanged")
+                continue
+            print(f"{path} mismatch!")
+            print(f"  {chksum} -> {newsum}")
+
+            changed += 1
+            if not check:
+                manifest['files'][file] = newsum
+
+        if not check and manifest != old_manifest:
+            print(f"updating {m_path}…")
+            with m_path.open('w', newline="\n") as fp:
+                json.dump(manifest, fp, indent="\t")
+                fp.write("\n")
+
+    if check:
+        return changed
+    return 0
+
+
+if __name__ == '__main__':
+    check = len(sys.argv) > 1 and sys.argv[1] == "check"
+    sys.exit(main(check))
