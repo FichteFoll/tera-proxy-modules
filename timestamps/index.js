@@ -13,7 +13,6 @@ module.exports = function TimeStamps (dispatch){
         var time = new Date()
         const hours = "" + time.getHours(), minutes = "" + time.getMinutes()
         var timeStr = `${hours.padStart(2, "0")}:${minutes.padStart(2, "0")}`
-        // var timeStr = ("0" + time.getHours()).slice(-2) + ":" + ("0" + time.getMinutes()).slice(-2)
         event.authorName = `</a>${timeStr}][<a href='asfunction:chatNameAction,${event.authorName}@0@0'>${event.authorName}</a>`
         return true
     }
@@ -25,7 +24,7 @@ module.exports = function TimeStamps (dispatch){
     dispatch.hook('C_REMOVE_BLOCKED_USER', 1, ({name}) => {
         blocked.delete(name)
     })
-    dispatch.hook('S_LOGIN', 10, () => {
+    dispatch.hook('S_LOGIN', 'raw', () => {
         blocked.clear()
     })
     dispatch.hook('S_CHAT', 2, processChatEvent)
