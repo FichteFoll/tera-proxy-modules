@@ -1,0 +1,9 @@
+{
+	"files": {
+		"index.js": "1c53b5d8670d2c15426982ce62bbabb860f10dd668002c25e1f803e15c160cc2"
+	},
+	"defs": {
+		"S_EXIT": 3,
+		"S_PREPARE_EXIT": 1
+	}
+}
