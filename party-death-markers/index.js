@@ -82,7 +82,7 @@ module.exports = function PartyDeathMarkers (dispatch) {
         }
     }
 
-    dispatch.hook('S_LOGIN', 10, () => {
+    dispatch.hook('S_LOGIN', 'raw', () => {
         partyMembers = []
         deadPeople.clear()
     })
@@ -120,7 +120,7 @@ module.exports = function PartyDeathMarkers (dispatch) {
         console.log(`in party with ${partyMembers.length} people:\n${JSON.stringify(partyMembers)}`)
     })
 
-    dispatch.hook('S_LEAVE_PARTY', 1, () => {
+    dispatch.hook('S_LEAVE_PARTY', 'raw', () => {
         partyMembers = []
         deadPeople.forEach((k) => removeMarker(k))
         deadPeople.clear()
